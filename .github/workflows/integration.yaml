@@ -1,0 +1,15 @@
+name: Continuous Deployment
+on: [push]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@master
+            - name: Setup NodeJs
+              uses: actions/setup-node@master
+              with:
+               node-version: [10.x,11.x,12.x]
+            - run: npm install -g surge
+            - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }} 
