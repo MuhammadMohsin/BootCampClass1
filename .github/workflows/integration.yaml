@@ -9,6 +9,6 @@ jobs:
             - name: Setup NodeJs
               uses: actions/setup-node@v1
               with:
-               node-version: [10.x, 12.x, 14.x]
+               node-version: 12.x
             - run: npm install -g surge
             - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }} 
