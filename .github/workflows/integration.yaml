@@ -5,10 +5,9 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
-              uses: actions/checkout@master
+              uses: actions/checkout@v2
             - name: Setup NodeJs
-              uses: actions/setup-node@master
+              uses: actions/setup-node@v1
               with:
                node-version: [10.x, 12.x, 14.x]
             - run: npm install -g surge
